@@ -26,8 +26,7 @@ export default createStore({
     ],
     cart: [],
   },
-  getters: {
-  },
+  
   mutations: {
     storeUser(state, data) {
     state.user = data
@@ -40,6 +39,14 @@ export default createStore({
       const index = state.cart.findIndex(objeto => objeto.id === id)
       state.cart.splice(index, 1);
 
+    },
+    
+  },
+  getters: {
+    total(state) {
+      // dependencia
+      // retornar um valor
+      return state.cart.reduce((total, item) => total += item.price, 0)
     },
   },
   actions: {
