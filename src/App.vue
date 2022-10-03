@@ -11,6 +11,9 @@
  
 
   <br><br>
+  {{ $store.state.user.first_name }} {{ $store.state.user.last_name }} <br>
+  {{ $store.state.user.email }}
+  
   <br><br>
   <button @click="updateUser">
     Atualizar perfil
@@ -40,7 +43,10 @@ export default {
       last_name: 'Fernandes',
       email: 'joao@gmail.com'
     }
-    this.$store.commit('storeUser', newUser)
+    // this.$store.commit('storeUser', newUser)
+    this.$store.dispatch('storeUser', newUser).then(() => {
+
+    })
   },
 
 
